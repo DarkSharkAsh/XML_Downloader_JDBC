@@ -1,13 +1,11 @@
 package com.test.xml.service;
 
-import java.io.BufferedInputStream;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.util.Map;
 
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
@@ -23,13 +21,20 @@ public class PlanService {
 	 private DataSource dataSource;
 
 	// select
-	public byte[] select(int id) throws FileNotFoundException {
+	public byte[] select(String id) throws FileNotFoundException {
 		new JdbcTemplate(dataSource);
 
 		String sql = "SELECT xmldata FROM user.plan where idPLAN =?";
 		Object[] params = new Object[] { id };
+	    String user;
 //		Map<String, Object> user = this.jdbcTemplate.queryForMap(sql, params);
-		String user = this.jdbcTemplate.queryForObject(sql, params,String.class);
+		try {
+	        user = this.jdbcTemplate.queryForObject(sql,String.class,params);
+	    } catch (EmptyResultDataAccessException e) {
+	        // Handle the exception, e.g., return an empty byte array
+	        return new byte[0];
+	    }
+		
 		
 //		
 //		BufferedInputStream streams = new BufferedInputStream(id+" xmldata.xml");
