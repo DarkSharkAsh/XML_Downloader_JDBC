@@ -1,0 +1,88 @@
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
+
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .container {
+    margin: 20px auto;
+    max-width: 500px;
+    padding: 20px;
+  }
+
+  .input-group {
+    margin-bottom: 20px;
+  }
+
+  .input-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .input-group input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .input-group button {
+    background-color: #4CAF50;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .input-group button:hover {
+    background-color: #45a049;
+  }
+ 
+   :root {
+    --background-color: #ffffff;
+    --text-color: #000000;
+  }
+
+  /* Define CSS variables for dark mode */
+  .dark-mode {
+    --background-color: #333333;
+    --text-color: #ffffff;
+  }
+  .right-content {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+  /* Rest of the CSS styles */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  header, footer {
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }

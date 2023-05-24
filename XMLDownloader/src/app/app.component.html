@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+<div *ngIf="isLoading" class="loader">
+  <i class="fas fa-hourglass fa-spin"></i>
+</div>
+<div *ngIf="!isLoading">
+<header>
+  <h1>{{title}}</h1>
+   <div class="right-content">
+    <button id="darkModeButton" (click)="toggleDarkMode()">
+      <i id="modeIcon" class="fas fa-sun"></i>
+    </button>
+  </div>
+</header>
+
+<div class="container">
+  <div class="input-group">
+    <label for="planInput">Plan:</label>
+    <input type="text" id="planInput" id="fileId" placeholder="Enter plan ID" #fileId>
+    <button (click)="download(fileId.value)">Download</button>
+  </div>
+
+  <div class="input-group">
+    <label for="contractInput">Contract:</label>
+    <input type="text" id="contractInput" placeholder="Enter contract ID" #ccId>
+  <input type="text" id="effectiveDateInput" placeholder="Enter effective date (e.g., 01/JAN/2023)" #ccDate>
+
+    <button (click)="downloadContractXml(ccId.value, ccDate.value)">Download</button>
+  </div>
+</div>
+
+<footer>
+  &copy; 2023 Your Company Name
+</footer>
+</div>
